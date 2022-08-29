@@ -5,7 +5,6 @@ import StripeContainer from "./components/StripeContainer";
 
 function App() {
   const [showItem, setShowItem] = useState(false);
-
   return (
     <div className="App">
       <h1>The Spatula Store</h1>
@@ -13,8 +12,8 @@ function App() {
         <StripeContainer />
       ) : (
         <>
-          {" "}
-          <h3>$10.00</h3> <img src={spatula} alt="Spatula" />{" "}
+          <h3>$10.00</h3>
+          <img src={spatula} alt="Spatula" />
           <button onClick={() => setShowItem(true)}>Purchase Spatula</button>
         </>
       )}

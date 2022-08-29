@@ -1,19 +1,16 @@
-import React from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import React from "react";
 import PaymentForm from "./PaymentForm";
 
-function StripeContainer() {
-  const PUBLIC_KEY =
-    "pk_live_51Kr75TCmyBHOeaAVOiNjBH0BRf6k5lGYV8Sp0pf7MAkCW8nXZvsndFIY8COCJG0urOygY74cKxlawzncf54nEgMK00BRC4YYP6";
+const { REACT_APP_STRIPE_PUBLISHABLE_TEST } = process.env;
 
-  const stripeTestPromise = loadStripe(PUBLIC_KEY);
+const stripeTestPromise = loadStripe(REACT_APP_STRIPE_PUBLISHABLE_TEST);
 
+export default function StripeContainer() {
   return (
     <Elements stripe={stripeTestPromise}>
       <PaymentForm />
     </Elements>
   );
 }
-
-export default StripeContainer;
